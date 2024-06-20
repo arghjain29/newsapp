@@ -7,6 +7,7 @@ import {
   Route,
   Routes
 } from 'react-router-dom';
+import LoadingBar from 'react-top-loading-bar';
 
 export default class App extends Component {
 
@@ -16,6 +17,11 @@ export default class App extends Component {
       <div>
         <Router>
           <NavBar />
+          <LoadingBar
+            color='#f11946'
+            progress={progress}
+            onLoaderFinished={() => setProgress(0)}
+          />
           <Routes>
             <Route path="/" element={<News key="general" pagesize={3} country="in" category="general" />} />
             <Route path="/business" element={<News key="business" pagesize={3} country="in" category="business" />} />

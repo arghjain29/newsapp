@@ -2,6 +2,12 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
 export default class navbar extends Component {
+
+    selectCountry = (country) => {
+        this.props.onCountryChange(country);
+      };
+
+
     render() {
         return (
             <div>
@@ -13,12 +19,24 @@ export default class navbar extends Component {
                         </button>
                         <div className="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                                <li className="nav-item"><Link exact to="/business" className="nav-link">Business</Link></li>
+                                <li className="nav-item"><Link to="/business" className="nav-link">Business</Link></li>
                                 <li className="nav-item"><Link exact to="/entertainment" className="nav-link">Entertainment</Link></li>
-                                <li className="nav-item"><Link exact to="/health" className="nav-link">Health</Link></li>
-                                <li className="nav-item"><Link exact to="/science" className="nav-link">Science</Link></li>
-                                <li className="nav-item"><Link exact to="/sports" className="nav-link">Sports</Link></li>
-                                <li className="nav-item"><Link exact to="/technology" className="nav-link">Technology</Link></li>
+                                <li className="nav-item"><Link to="/health" className="nav-link">Health</Link></li>
+                                <li className="nav-item"><Link to="/science" className="nav-link">Science</Link></li>
+                                <li className="nav-item"><Link to="/sports" className="nav-link">Sports</Link></li>
+                                <li className="nav-item"><Link to="/technology" className="nav-link">Technology</Link></li>
+                            </ul>
+
+                        </div>
+                        <div className="dropdown mx-2">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+                                Select Country
+                            </button>
+                            <ul className="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenu2">
+                                <li><button className="dropdown-item" type="button" onClick={() => this.selectCountry('in')}>India</button></li>
+                                <li><button className="dropdown-item" type="button" onClick={() => this.selectCountry('us')}>USA</button></li>
+                                <li><button className="dropdown-item" type="button" onClick={() => this.selectCountry('jp')}>Japan</button></li>
+                                <li><button className="dropdown-item" type="button" onClick={() => this.selectCountry('ru')}>Russia</button></li>
                             </ul>
                         </div>
                     </div>

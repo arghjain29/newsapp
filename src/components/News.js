@@ -7,8 +7,8 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 
 export default class News extends Component {
 
+
   static defaultProps = {
-    country: 'in',
     pagesize: 8,
     category: 'general'
   }
@@ -59,6 +59,12 @@ export default class News extends Component {
 
   async componentDidMount() {
     this.update();
+  }
+
+  async componentDidUpdate(prevProps) {
+    if (this.props.country !== prevProps.country) {
+      this.update();
+    }
   }
 
   fetchMoreData = async () => {

@@ -29,9 +29,10 @@ export default class App extends Component {
 
   render() {
     return (
-
+      
       <div>
         <Router>
+          
           <NavBar onCountryChange={this.handleCountryChange} />
           <LoadingBar
             height={3}
